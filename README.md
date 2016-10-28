@@ -79,29 +79,29 @@ javascript和其他编程语言相比比较随意，所以javascript代码中充
 
 在理解了一些函数基本概念后，回头看看( function(){…} )()和( function (){…} () )这两种立即执行函数的写法，最初我以为是一个括号包裹匿名函数，并后面加个括号立即调用函数，当时不知道为什么要加括号，后来明白，要在函数体后面加括 号就能立即调用，则这个函数必须是函数表达式，不能是函数声明。
 
-(function(a){
-  console.log(a);     //firebug输出123，使用()运算符
-})(123);
+    (function(a){
+      console.log(a);     //firebug输出123，使用()运算符
+    })(123);
 
-(function(a){
-  console.log(a);     //firebug输出1234，使用()运算符
-}(1234));
+    (function(a){
+      console.log(a);     //firebug输出1234，使用()运算符
+    }(1234));
 
-!function(a){
-  console.log(a);     //firebug输出12345,使用！运算符
-}(12345)
+    !function(a){
+      console.log(a);     //firebug输出12345,使用！运算符
+    }(12345)
 
-+function(a){
-    console.log(a);   //firebug输出123456,使用+运算符
-}(123456);
- 
--function(a){
-    console.log(a);   //firebug输出1234567,使用-运算符
-}(1234567);
- 
-var fn=function(a){
-    console.log(a);   //firebug输出12345678，使用=运算符
-}(12345678)
+    +function(a){
+        console.log(a);   //firebug输出123456,使用+运算符
+    }(123456);
+
+    -function(a){
+        console.log(a);   //firebug输出1234567,使用-运算符
+    }(1234567);
+
+    var fn=function(a){
+        console.log(a);   //firebug输出12345678，使用=运算符
+    }(12345678)
 
 可以看到输出结果，在function前面加！、+、 -甚至是逗号等到都可以起到函数定义后立即执行的效果，而（）、！、+、-、=等运算符，都将函数声明转换成函数表达式，消除了javascript引擎识别函数表达式和函数声明的歧义，告诉javascript引擎这是一个函数表达式，不是函数声明，可以在后面加括号，并立即执行函数的代码。
 
